@@ -34,13 +34,13 @@ def index():
 @page.route("/profile")
 @login_required
 def profile():
-    return render_template("profile/view.html",name=current_user)
+    return render_template("profile/view.html",user=current_user)
 
 @page.route("/profile/<int:profile_id>")
 @login_required
 def profile_id(profile_id):
     user = User.query.get_or_404(profile_id)
-    return render_template("profile/view.html",name=user)
+    return render_template("profile/view.html",user=user)
     
 
 @page.route("/logout")
