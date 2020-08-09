@@ -40,7 +40,7 @@ def profile():
 @login_required
 def profile_id(profile_id):
     user = User.query.get_or_404(profile_id)
-    return render_template("profile/view.html",user=user)
+    return render_template("profile/view.html",user=user,active='profile')
     
 
 @page.route("/logout")
