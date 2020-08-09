@@ -2,13 +2,15 @@ from flask import Flask
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_wtf.csrf import CSRFProtect
+
+# depends on mysqlclient library
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
 # GENERAR INSTANCIAS
 app = Flask(__name__)
 
-bootstrap = Bootstrap()
+bootstrap = Bootstrap(app)
 mail = Mail()
 csrf = CSRFProtect() # PROTECCION CONTRA ATAQUES CSRF
 db = SQLAlchemy() # instancia database
@@ -32,8 +34,8 @@ def create_app(config):
     csrf.init_app(app)
 
     #asignacion de bootstrap
-    if not app.config.get('TEST',False):
-        bootstrap.init_app(app)
+    #if not app.config.get('TEST',False):
+    #    bootstrap.init_app(app)
 
     app.app_context().push()
     #login manager - flask-login

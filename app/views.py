@@ -31,7 +31,9 @@ def page_not_found(error):
 def index():
     return render_template('index.html',title='Index',active='index')
 
-
+@page.route("/profile")
+def profile():
+    return render_template("profile/view.html")
 
 @page.route("/logout")
 def logout():
