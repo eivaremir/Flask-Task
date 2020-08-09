@@ -36,6 +36,13 @@ def index():
 def profile():
     return render_template("profile/view.html",name=current_user)
 
+@page.route("/profile/<int:profile_id>")
+@login_required
+def profile_id(profile_id):
+    user = User.query.get_or_404(profile_id)
+    return render_template("profile/view.html",name=user)
+    
+
 @page.route("/logout")
 def logout():
     print('Auth: '+str(current_user.is_authenticated))
