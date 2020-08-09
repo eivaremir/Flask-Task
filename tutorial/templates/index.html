@@ -1,0 +1,36 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+    <script src="{{url_for('static',filename='js/main.js')}}"></script>
+</head>
+<body>
+    -->
+    {% extends 'base.html'%}
+    {% block content %}
+    <h2>Hola {{username}}</h2>
+    <p>se encuentra dentro de un html, bienvenido a {{course_name}}</p>
+    {% if is_premium %}
+    <p>Es premium</p>
+    {%else%}
+    <p>es gratutito</p>
+    {% endif %}
+    {% if Courses%}
+        <p>listado de cursos</p>
+        <ul>
+
+            {% for c in Courses%}
+            <li>{{c}}</li>
+            {%endfor%}
+        </ul>
+    {%endif%}
+    <img src="{{url_for('static',filename='images/IMG-20171008-WA0065.jpg')}}" alt="">
+    {%endblock%}
+<!--
+</body>
+</html>
+-->
