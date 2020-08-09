@@ -38,7 +38,7 @@ def profile():
 
 @page.route("/profile/<int:profile_id>")
 @login_required
-def profile(profile_id):
+def profile_id(profile_id):
     user = User.query.get_or_404(profile_id)
     return render_template("profile/view.html",name=user)
     
