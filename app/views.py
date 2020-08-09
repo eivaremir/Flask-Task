@@ -32,8 +32,9 @@ def index():
     return render_template('index.html',title='Index',active='index')
 
 @page.route("/profile")
+@login_required
 def profile():
-    return render_template("profile/view.html")
+    return render_template("profile/view.html",name=current_user)
 
 @page.route("/logout")
 def logout():

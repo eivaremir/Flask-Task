@@ -4,7 +4,9 @@
 {%block container%}
 
 <div class="col-md-12 col-md-offset-1">
-    <h3>Nombre</h3>
+    <h3>{{current_user}}</h3>
+    <h5>Email: {{current_user.email}}</h5>
+    
 </div>
 
 {% endblock %}
