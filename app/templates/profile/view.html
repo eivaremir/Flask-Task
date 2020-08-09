@@ -6,6 +6,7 @@
 <div class="col-md-12 col-md-offset-1">
     <h3>{{user}}</h3>
     <h5>Email: {{user.email}}</h5>
+    {% if user == current_user and current_user.is_authenticated %} <h5>Contraseña: {{user.password}}</h5> {% endif %}
     
 </div>
 
